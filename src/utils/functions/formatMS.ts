@@ -1,8 +1,6 @@
 import { lang } from "../../config/index.js";
 import { format, formatDuration, intervalToDuration } from "date-fns";
-
-// @ts-expect-error fix for v20
-const locales: Record<string, globalThis.Locale> = await import("date-fns/locale/index.js");
+import * as locales from "date-fns/locale";
 
 const key = Object.keys(locales).find(v => v.toLowerCase() === lang.toLowerCase());
 const locale = key ? locales[key] : locales.enUS;
